@@ -1,0 +1,53 @@
+<form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()" >
+
+  <mat-form-field class="example-full-width">
+    <div
+      class="form-group"
+      [ngClass]="{'has-error': form.get('name').invalid && form.get('name').touched}"
+    >
+      <input
+        type="text"
+        matInput
+        id="name"
+        placeholder="Введите название рецепта"
+        formControlName="name"
+      >
+      <span
+        class="form-help-text"
+        *ngIf="form.get('name').invalid && form.get('name').touched"
+      >
+      Название рецепта не может быть пустым.
+    </span>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <div
+      class="form-group"
+      [ngClass]="{'has-error': form.get('ingredient').invalid && form.get('ingredient').touched}"
+    >
+      <input
+        type="text"
+        id="ingredient"
+        matInput
+        placeholder="Введите ингридиенты"
+        formControlName="ingredient"
+      >
+      <span
+        class="form-help-text"
+        *ngIf="form.get('ingredient').invalid && form.get('ingredient').touched"
+      >
+          Поле ингредиент не может быть пустым.
+        </span>
+    </div>
+  </mat-form-field>
+  <div class="form-group">
+    <button
+      type="submit"
+      class="btn btn-primary btn-lg"
+      [disabled]="form.invalid"
+    >
+      Добавить
+    </button>
+  </div>
+</form>

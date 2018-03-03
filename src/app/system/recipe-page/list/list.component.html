@@ -1,0 +1,17 @@
+<div class="recipe" *ngFor="let recipe of recipeList" >
+  <mat-card>
+    <mat-card-title>{{recipe.name}} </mat-card-title>
+    <mat-card-content>{{recipe.ingredient}} </mat-card-content>
+    <button
+      type="submit"
+      (click)="onDelete(recipe.id)"
+    ><a>Delete</a></button>
+
+<!--    <button
+      type="submit"
+      [routerLink]="['/update']"
+    ><a>Update</a></button>-->
+    <app-update> </app-update>
+
+  </mat-card>
+</div>
