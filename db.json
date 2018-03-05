@@ -2,21 +2,15 @@
   "users": [
     {
       "id": 1,
-      "email": "wfm@mail.ru",
-      "password": "qwerty",
-      "name": "Администратор"
-    },
-    {
-      "email": "fibi-yana@ukr.net",
-      "password": "f7i2b3i4",
-      "name": "yana",
-      "id": 2
-    },
-    {
       "email": "test1@gmail.com",
       "password": "qwerty",
-      "name": "test1",
-      "id": 3
+      "name": "test1"
+    },
+    {
+      "email": "test2@gmail.com",
+      "password": "qwerty",
+      "name": "test2",
+      "id": 2
     }
   ],
   "recipes": [
