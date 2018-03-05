@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RecipesService} from '../../../shared/services/recipes.service';
+import {Recipe} from '../../../shared/models/recipes.model';
 
 @Component({
   selector: 'app-list',
@@ -7,12 +8,13 @@ import {RecipesService} from '../../../shared/services/recipes.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+  recipe =  new Recipe();
   constructor(
     private recipesService: RecipesService
   ) {}
 
   private recipeList;
-
+  private currentRec = {};
   async ngOnInit() {
     this.recipeList = await this.recipesService.getRecipes();
 
@@ -32,26 +34,18 @@ export class ListComponent implements OnInit {
       });
   }
 
-/*    onUpdate(id) {
-    this.recipesService.updateRecipe(id)
-     /!* .subscribe((res) => console.log(res))*!/
-      .subscribe((res) => {this.recipesService
-        .getRecipes()
-        .then(ress => this.recipeList = ress);
-  });
-    }*/
 
 
-  onUpdate(id) {
-    this.recipesService.getRecipeForID(id)
-      .subscribe((res) => {this.recipesService
-        .getRecipes()
-        .then(ress => this.recipeList = ress);
-      });
+  change(rec): void {
+    this.currentRec = rec;
   }
 
-/*onSubmit() {
-    alert('YPA!');
-}*/
+
+onChanges(recipe: Recipe): void {
+  console.log(recipe);
+  this.recipesService.updateRecipe(recipe);
+
+}
+
 
 }

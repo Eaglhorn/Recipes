@@ -3,7 +3,6 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {SystemComponent} from './system.component';
 import {RecipePageComponent} from './recipe-page/recipe-page.component';
-import {UpdateComponent} from './recipe-page/update/update.component';
 
 
 const routes: Routes = [

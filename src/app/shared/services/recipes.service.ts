@@ -62,6 +62,13 @@ private headers = new HttpHeaders({'Content-Type': 'application/json'});
         return res;
       });
   }
+
+  updateRecipe(recipe: Recipe): void {
+    const url = `http://localhost:3000/recipes/${recipe.id}`;
+    this.http.put(url, recipe)
+      .subscribe(
+      );
+  }
 /*  updateRecipe() {
       return this.http.get('http://localhost:3000/recipes')
         .subscribe((res) => {

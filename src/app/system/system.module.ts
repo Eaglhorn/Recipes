@@ -13,9 +13,7 @@ import { ListComponent } from './recipe-page/list/list.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCardModule, MatInputModule, MatListModule} from '@angular/material';
-import { UpdateComponent } from './recipe-page/update/update.component';
 import {RecipePageRoutingModule} from './recipe-page/recipe-page-routing.module';
-import {BsModalService} from 'ngx-bootstrap/modal/bs-modal.service';
 import {ModalModule} from 'ngx-bootstrap';
 
 
@@ -42,8 +40,7 @@ declarations: [
   DropdownDirective,
   RecipePageComponent,
   AddComponent,
-  ListComponent,
-  UpdateComponent
+  ListComponent
 ],
   providers: []
 })

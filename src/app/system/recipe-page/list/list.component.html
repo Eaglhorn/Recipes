@@ -8,89 +8,71 @@
       (click)="onDelete(recipe.id)"
     ><a>Удалить</a></button>
 
-<!--    <button
-      type="submit"
-      [routerLink]="['/update']"
-    ><a>Update</a></button>-->
-
-<!--    <button
-      type="submit"
-      (click)="onUpdate(recipe.id)"
-    ><a>QQr</a>></button>-->
-    <!--<app-update > </app-update>-->
     <button
-      type="button"
+      type="submit"
       class="btn btn-primary"
-      data-toggle="modal" data-target="#myModal"
-      (click)="lgModal.show();onUpdate(recipe.id)"
-
+      (click)="change(recipe);lgModal.show()"
     >
-      Изменить
+      <a>Изменить</a>
     </button>
 
 
 
-    <div bsModal
-         id="myModal"
-         #lgModal="bs-modal"
-         [config]="{backdrop: 'static'}"
+  </mat-card>
+  <div bsModal #lgModal="bs-modal" [config]="{backdrop: 'static'}"
 
-         class="modal fade" tabindex="-1"
-         role="dialog" aria-labelledby="myLargeModalLabel"
-         aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg"  >
-        <div class="modal-content">
+       class="modal fade" tabindex="-1"
+       role="dialog" aria-labelledby="myLargeModalLabel"
+       aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg"  >
+      <div class="modal-content">
 
-          <div class="modal-header" >
-            <h4 class="modal-title pull-left">Редактировать рецепт</h4>
-            <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-          <div class="modal-body">
-            <mat-form-field class="example-full-width">
-              <div
-
-              >
-                <input
-                  type="text"
-                  matInput
-                  id="name"
-
-                  placeholder="Введите название рецепта"
-                >
-              </div>
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width">
-              <div
-              >
-                <input
-                  type="text"
-                  id="ingredient"
-                  matInput
-
-                  placeholder="Введите ингридиенты"
-                >
-              </div>
-            </mat-form-field>
-          </div>
-
-          <div class="modal-footer">
-            <button
-              type="submit"
-              class="btn btn-primary btn-lg"
-
-            >
-              Изменить
-            </button>
-          </div>
-
+        <div class="modal-header" >
+          <h4 class="modal-title pull-left">Редактировать рецепт</h4>
+          <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+
+        <div class="modal-body">
+          <mat-form-field class="example-full-width">
+            <div>
+              <input
+                type="text"
+                matInput
+                id="name"
+                [(ngModel)]="currentRec.name"
+                placeholder="Введите название рецепта"
+              >
+            </div>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <div
+            >
+              <input
+                type="text"
+                id="ingredient"
+                matInput
+                [(ngModel)]="currentRec.ingredient"
+                placeholder="Введите ингридиенты"
+              >
+            </div>
+          </mat-form-field>
+        </div>
+
+        <div class="modal-footer">
+          <button
+            type="submit"
+            class="btn btn-primary btn-lg"
+          (click)="onChanges(recipe);lgModal.hide()"
+          >
+            Изменить
+          </button>
+        </div>
+
       </div>
     </div>
-
-  </mat-card>
+  </div>
 </div>
