@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import {UsersService} from './shared/services/users.service';
 import {AuthService} from './shared/services/auth.service';
 import {RecipesService} from './shared/services/recipes.service';
+import {BsModalService} from 'ngx-bootstrap/modal/bs-modal.service';
+import {ModalModule} from 'ngx-bootstrap';
 
 
 
@@ -23,9 +25,10 @@ import {RecipesService} from './shared/services/recipes.service';
     HttpClientModule,
     AuthModule,
     AppRoutingModule,
-    SystemModule
+    SystemModule,
+    ModalModule.forRoot()
   ],
-  providers: [UsersService, AuthService, RecipesService],
+  providers: [UsersService, AuthService, RecipesService, BsModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,6 +15,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCardModule, MatInputModule, MatListModule} from '@angular/material';
 import { UpdateComponent } from './recipe-page/update/update.component';
 import {RecipePageRoutingModule} from './recipe-page/recipe-page-routing.module';
+import {BsModalService} from 'ngx-bootstrap/modal/bs-modal.service';
+import {ModalModule} from 'ngx-bootstrap';
 
 
 
@@ -30,7 +32,8 @@ imports: [
   MatInputModule,
   MatButtonModule,
   MatListModule,
-  MatCardModule
+  MatCardModule,
+  ModalModule.forRoot()
 ],
 declarations: [
   SystemComponent,
@@ -41,7 +44,8 @@ declarations: [
   AddComponent,
   ListComponent,
   UpdateComponent
-]
+],
+  providers: []
 })
 
 export class SystemModule {}

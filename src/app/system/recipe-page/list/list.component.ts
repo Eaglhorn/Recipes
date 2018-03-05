@@ -8,7 +8,7 @@ import {RecipesService} from '../../../shared/services/recipes.service';
 })
 export class ListComponent implements OnInit {
   constructor(
-    private recipesService: RecipesService,
+    private recipesService: RecipesService
   ) {}
 
   private recipeList;
@@ -32,10 +32,26 @@ export class ListComponent implements OnInit {
       });
   }
 
-  onUpdate() {
-console.log('onUpgrate is work!!');
-}
+/*    onUpdate(id) {
+    this.recipesService.updateRecipe(id)
+     /!* .subscribe((res) => console.log(res))*!/
+      .subscribe((res) => {this.recipesService
+        .getRecipes()
+        .then(ress => this.recipeList = ress);
+  });
+    }*/
 
 
+  onUpdate(id) {
+    this.recipesService.getRecipeForID(id)
+      .subscribe((res) => {this.recipesService
+        .getRecipes()
+        .then(ress => this.recipeList = ress);
+      });
+  }
+
+/*onSubmit() {
+    alert('YPA!');
+}*/
 
 }

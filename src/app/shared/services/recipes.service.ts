@@ -10,6 +10,8 @@ export class RecipesService {
   constructor(private http: HttpClient) {
   }
    id: number;
+/*  recipes = [];
+  recipe: object = {};*/
 private headers = new HttpHeaders({'Content-Type': 'application/json'});
 
 
@@ -42,5 +44,36 @@ private headers = new HttpHeaders({'Content-Type': 'application/json'});
         });
     }
   }
+/*  updateRecipe(id) {
+    const url = `http://localhost:3000/recipes/${id}`;
+      return this.http.get(url,{headers: this.headers})
+        .map(res => {
+          console.log(res);
+        });
+
+
+    }*/
+
+  getRecipeForID(id) {
+    const url = `http://localhost:3000/recipes/${id}`;
+    return this.http.get(url,{headers: this.headers})/*.toPromise()*/
+      .map(res => {
+        console.log(res);
+        return res;
+      });
+  }
+/*  updateRecipe() {
+      return this.http.get('http://localhost:3000/recipes')
+        .subscribe((res) => {
+          for (var i = 0; i < this.recipes.length; i++) {
+            if (parseInt(this.recipes[i].id) === this.id) {
+              this.recipe = this.recipes[i];
+              break;
+            }
+          }
+        });
+  }*/
+
+
 
 }
